@@ -1,44 +1,46 @@
-
-  body,html{
+body,html{
       height: 100%;
       font-family: 'Montserrat', sans-serif;
-  }
-.main {
+}
+.main { /*the hero div */
       width: 100%;
       height:40vh;
+      position: relative;
       background-image: linear-gradient(to left, rgba(0, 0, 0, 0.082) 60%, rgba(92, 84, 110, 0.7)),url("main-pic.png");
       background-size:  100% 100%;
       background-repeat: no-repeat;
-      padding: 11vw 5vw;
-  }
-  .text h1{
+      padding: 10vw 5vw;
+}
+.main h1{
       font-weight: bold;
-      font-size:5vw !important
-  }
-  .text p{
+      font-size:5vw;
+      position: absolute;
+      top:30%;
+      transform: translateY(-50%) !important
+}
+.main p{
       width:53vw;
-      font-size: 1.2rem;
-      padding-top: 3px !important
-  }
-  .flex{
+      font-size: 1.4vw;
+      position: absolute;
+      top:40% !important
+}
+
+/* the small orange box under the picture */
+.after{
+    width:100%; 
+    height:15px; 
+    background-color:#FF4301
+}
+
+/* the flex container in which the trainers cards are housed */
+.flex{
       display: flex;
       justify-content: space-around;
       flex-wrap:wrap;
       padding:0 30px
-  }
-  .items{
-      position: relative;
-  }
-  .items:hover  .overlay {
-    width:100%;
-    height:100%;
-    position: absolute;
-    top: 1px;
-    background-color:#000;
-    opacity:0.5;
-    z-index: 1;
 }
-  .flex h1{
+/* positioning the h1 in the div */
+.flex h1{
       position: absolute;
       top:60%;
       transform: translateX(-50%);
@@ -48,65 +50,110 @@
       font-weight: bold;
       transition: all 0.5s ease-in-out;
       color:white;
-  }
-  .hide{
-      visibility: hidden;
+      z-index: 1
+}
+/* the trainer cards alignment */
+.card{
+      position: relative;
+      width:30%;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       transition: all 0.5s ease-in-out;
-      
-  }
-  .hov{
-      position: absolute;
-      bottom:12%;
-      font-size: 16px;
-      color: white;
-  }
-  .items:hover .hide{
-      visibility: visible;
-      transition: all 0.5s ease-in-out;
-      background-color: rgba(177, 22, 22, 0.945);
-      z-index:100
-  }
-  .items:hover h1{
+}
+.card:hover{
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+}
+.card:hover h1{
     color: #FF4301;
     font-size: 2.5vw;
     transition: all 0.5s ease-in-out
 }
+/* overlay over the image cards when hovered */
+.card:hover  .overlay {   
+    width:100%;
+    height:100%;
+    position: absolute;
+    top: 1px;
+    background-color:#000;
+    opacity:0.5;
+    z-index: 0;
+    transition: all 0.5s ease-in-out;
+}
+/* hide the details on the trainer cards */
+.hide{
+      visibility: hidden;
+      transition: all 0.2s ease-in-out;
+      
+}
+/* display the details on the trainer cards when hovered */
+.card:hover .hide{
+      visibility: visible;
+      transition: all 0.5s ease-in-out;
+      background-color: rgba(177, 22, 22, 0.945);
+      z-index:3
+}
+.hide p{
+      position: absolute;
+      bottom:10%;
+      font-size: 1vw;
+      color: white;
+}
 
-  .icon{
+/* change the font-size and text color of the h1 in the trainer cards when hovered */
+
+/* accurately position the icons in the trainer cards when hovered */
+.icon{
     position: absolute;
     bottom:20px;
     color: white;
     transform: translateX(-50%);
     left: 50%;
-  }
-  @media only screen and (orientation:landscape){
-      .main{
-          height: 100%
-      }
-  }
-  @media only screen and (max-width:576px) {
-      .main {
+}
+
+/* full picture of the main div on landscape orientation for responsiveness */
+@media only screen and (orientation:landscape){
+    .main{
+          height: 50vw
+    }
+}
+
+/* Responsiveness for mobile view */
+@media only screen and (max-width:576px) {
+    /* hero image responsive for small screen */
+.main {
         width: 100%;
-        height: 30vh;
-        padding: 9vw 3vw
+        height: 60vw;
     }
-    .hov{
-        font-size: 7px;
-        transform: translateX(-50%);
-        left: 50%;
-    }
-    .text p{
+.main h1{
+        font-size:4.7vw;
+        top:25%
+}
+.main p{
         width:50vw;
-        font-size: 0.3rem;
+        font-size: 1.5vw;
         letter-spacing: 0.5px;
+        top:30% !important
     }
-    .flex{
+
+/* the trainers cards in stacked in columns on mobile */
+.flex{
         flex-direction: column
     }
-    .flex h1{
+.flex h1{
         font-size: 6vw
     }
-    .flex div{
+/*  the trainers card takes up full 100% on mobile  */
+.flex .card{
         width: 100% !important;
     }
-  }
+/*   hover effect on the h1 */
+.card:hover h1{
+        color: #FF4301;
+        font-size: 5.5vw;
+        transition: all 0.5s ease-in-out
+    }
+.hide p{
+        font-size: 3.2vw;
+    }
+}
