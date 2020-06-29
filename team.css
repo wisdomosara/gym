@@ -76,7 +76,7 @@ body,html{
     position: absolute;
     top: 1px;
     background-color:#000;
-    opacity:0.5;
+    opacity:0.6;
     z-index: 0;
     transition: all 0.5s ease-in-out;
 }
@@ -111,6 +111,15 @@ body,html{
     left: 50%;
 }
 
+.icon i{
+    color:#FF4301;
+    font-size:2vw
+}
+.hr{
+    width:15%; 
+    height:1px; 
+    background-color:#FF4301
+}
 /* full picture of the main div on landscape orientation for responsiveness */
 @media only screen and (orientation:landscape){
     .main{
@@ -143,11 +152,9 @@ body,html{
 .flex h1{
         font-size: 6vw
     }
-/*  the trainers card takes up full 100% on mobile  */
 .flex .card{
         width: 100% !important;
     }
-/*   hover effect on the h1 */
 .card:hover h1{
         color: #FF4301;
         font-size: 5.5vw;
@@ -155,5 +162,9 @@ body,html{
     }
 .hide p{
         font-size: 3.2vw;
+    }
+.icon i{
+        color:#FF4301;
+        font-size:4vw
     }
 }
